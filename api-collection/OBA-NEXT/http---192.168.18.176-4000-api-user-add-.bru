@@ -1,0 +1,25 @@
+meta {
+  name: http://192.168.18.176:4000/api/user/add/
+  type: http
+  seq: 18
+}
+
+post {
+  url: http://192.168.18.176:4000/api/user/add/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoidXNlcjEwQG1haWwuY29tIiwidXNlclR5cGUiOjEsImlhdCI6MTc0OTczNzkzMSwiZXhwIjoxNzQ5ODI0MzMxfQ.PkPCZq1vorpvAZO-P-Y8E6br7fz-2g-I52w7_PGY1Tg
+}
+
+body:json {
+  {
+    "email":"admin14@mail.com",
+    "password":"memphis@123!",
+    "user_type_id":1,
+    "entity":[],
+    "expiry":"10-05-2025"
+  }
+}

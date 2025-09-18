@@ -1,0 +1,45 @@
+meta {
+  name: 192.168.17.22:4000/api/master/vessel/create/
+  type: http
+  seq: 13
+}
+
+post {
+  url: 192.168.17.22:4000/api/master/vessel/create/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbiIsInVzZXJUeXBlIjozLCJpYXQiOjE3NDkxNTMyMzMsImV4cCI6MTc0OTIzOTYzM30.WCoMICi4A4ixUT6Hprl1Ok6Tv_To99RquNMeGPbaJco
+}
+
+body:json {
+  
+  
+  {
+      "name": "Clemens Schulte",
+      "imo": "9665671",
+      "email": "clemens@mail.com",
+      "vessel_type": "cargo",
+      "hull_no": "5455454",
+      "flag": "SG",
+      "port_of_regd": "Singapore",
+      "year_built": 2004,
+      "no_of_dg": 3,
+      "dg_capacity_indvidual": [
+          5,
+          2,
+          15
+      ],
+      "dg_maker": "15",
+      "dg_model": "8",
+      "me_maker": "5",
+      "me_model": "2",
+      "power": 5,
+      "mcr": 1,
+      "geared_or_gearless": false,
+      "fk_company":1,
+      "fk_fleet":1
+  }
+}

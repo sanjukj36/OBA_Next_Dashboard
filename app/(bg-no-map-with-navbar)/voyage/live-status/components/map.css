@@ -1,0 +1,45 @@
+.leaflet-popup-content {
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+}
+
+.leaflet-popup-content-wrapper {
+  padding: 0px;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: transparent;
+}
+
+.leaflet-popup-tip-container {
+  display: none;
+}
+
+.leaflet-popup-content p {
+  margin: 0px;
+}
+
+.leaflet-container {
+  transition: none !important;
+}
+
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-container {
+  background-image: none !important;
+}
+
+/* tooltip css */
+
+.custom-tooltip {
+  background-color: black;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: none;
+}
+
+.custom-tooltip:before {
+  border-top-color: black;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "eslint-plugin-tag-misuse",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "cp ../../tag-list.config.json ./config/ && rm -rf dist && tsc",
+    "watch": "tsc -w",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^18.0.0",
+    "@typescript-eslint/utils": "^7.0.0"
+  },
+  "peerDependencies": {
+    "eslint": "^8.0.0"
+  }
+}

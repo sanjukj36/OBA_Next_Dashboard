@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 0 0% 84%;
+    --secondary: 0 0% 45%;
+    --card: 0 0% 84%;
+    --card-foreground: 0 0% 0%;
+    --input: 0 0% 100%;
+    --border: 0 0% 0%;
+    --destructive: 0 74% 41%;
+    --destructive-foreground: 0 0% 98%;
+    --edit: 206 40% 21%;
+    --gradient-navbar-bg: linear-gradient(
+      1.57deg,
+      rgba(217, 217, 217, 0.7) -701.36%,
+      rgba(0, 0, 0, 0.7) 98.67%
+    );
+    --gradient-1: linear-gradient(360deg, #3f3f3f -2.03%, #6c6c6c 98.75%);
+    --gradient-2: linear-gradient(
+      2.2deg,
+      rgba(0, 0, 0, 0.85) -149.17%,
+      rgba(87, 87, 87, 0.85) 78.1%
+    );
+    --gradient-3: linear-gradient(2.2deg, #000000 -322.96%, #5c5c5c 78.1%);
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 10px;
+  }
+
+  .dark {
+    --primary: 0 0% 84%;
+    --secondary: 0 0% 45%;
+    --card: 0 0% 84%;
+    --card-foreground: 0 0% 0%;
+    --input: 0 0% 100%;
+    --border: 0 0% 0%;
+    --destructive: 0 74% 41%;
+    --destructive-foreground: 0 0% 98%;
+    --edit: 206 40% 21%;
+    --gradient-navbar-bg: linear-gradient(
+      1.57deg,
+      rgba(217, 217, 217, 0.7) -701.36%,
+      rgba(0, 0, 0, 0.7) 98.67%
+    );
+    --gradient-1: linear-gradient(360deg, #3f3f3f -2.03%, #6c6c6c 98.75%);
+    --gradient-2: linear-gradient(
+      2.2deg,
+      rgba(0, 0, 0, 0.85) -149.17%,
+      rgba(87, 87, 87, 0.85) 78.1%
+    );
+    --gradient-3: linear-gradient(2.2deg, #000000 -322.96%, #5c5c5c 78.1%);
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+    --info: 221 72% 48%;
+    --info-foreground: 0 0% 98%;
+
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 10px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background font-din text-foreground;
+  }
+
+  canvas {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* For Chrome, Edge, and Safari */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #000;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
+  }
+
+  .bg-custom-gradient {
+    background: linear-gradient(
+      2.2deg,
+      rgba(0, 0, 0, 0.85) -149.17%,
+      rgba(87, 87, 87, 0.85) 78.1%
+    );
+  }
+
+  .bg-custom-gradient-ok {
+    background: linear-gradient(
+      2.2deg,
+      rgba(0, 0, 0, 0.85) -149.17%,
+      rgba(87, 87, 87, 0.85) 78.1%
+    );
+  }
+  .bg-custom-gradient-unselected {
+    background: linear-gradient(
+      2.2deg,
+      rgba(0, 0, 0, 1) -322.96%,
+      rgba(42, 42, 42) 78.1%
+    );
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+
+  .gradient-border {
+    border: double var(--border, 1px) transparent;
+    border-radius: 10px;
+    background-image:
+      linear-gradient(black, black),
+      linear-gradient(180deg, #cccccc 0%, #555555 51.44%, #cccccc 99.04%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  .gradient-border-2 {
+    border: double 1px transparent;
+    border-radius: 10px;
+    background-image:
+      linear-gradient(90deg, #1B1B1B 0%, #2F2F2F 100%),
+      linear-gradient(180deg, #CECECE 0%, #555555 48.08%, #CECECE 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    border: 1px solid;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  .prose code {
+    background-color: transparent;
+    color: #a0a9bc !important;
+  }
+    .prose strong {
+      background-color: transparent;
+      color: #0051ff !important;
+
+    }
+}

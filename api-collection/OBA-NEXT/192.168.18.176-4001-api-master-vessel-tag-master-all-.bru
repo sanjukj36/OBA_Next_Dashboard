@@ -1,0 +1,20 @@
+meta {
+  name: 192.168.18.176:4001/api/master/vessel/tag-master/all/
+  type: http
+  seq: 44
+}
+
+get {
+  url: 192.168.18.176:4001/api/master/vessel/tag-master/all/
+  body: multipartForm
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoidXNlcjEwQG1haWwuY29tIiwidXNlclR5cGUiOjEsImlhdCI6MTc1MDIyOTcxNCwiZXhwIjoxNzUyODIxNzE0fQ.osVHUSTGLpnNhWx7ajjywOx7u87jjiF3kj1z7kQZCtU
+}
+
+body:multipart-form {
+  email: user10@mail.com
+  image: @file()
+}

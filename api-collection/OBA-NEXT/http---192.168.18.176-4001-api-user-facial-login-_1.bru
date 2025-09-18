@@ -1,0 +1,20 @@
+meta {
+  name: http://192.168.18.176:4001/api/user/facial/login/_1
+  type: http
+  seq: 43
+}
+
+post {
+  url: http://192.168.18.176:4001/api/user/facial/login/
+  body: multipartForm
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoidXNlcjEwQG1haWwuY29tIiwidXNlclR5cGUiOjEsImlhdCI6MTc1MDE0OTk1MCwiZXhwIjoxNzUyNzQxOTUwfQ.bB_Kw3pDjIP4ZcFjdWiyb2OtmprglvAfOl9G2IQZvVA
+}
+
+body:multipart-form {
+  email: user10@mail.com
+  image: @file()
+}

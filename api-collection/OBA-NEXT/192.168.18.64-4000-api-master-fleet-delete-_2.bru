@@ -1,0 +1,26 @@
+meta {
+  name: 192.168.18.64:4000/api/master/fleet/delete/_2
+  type: http
+  seq: 12
+}
+
+delete {
+  url: 192.168.18.64:4000/api/master/fleet/delete/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImVtYWlsIjoiYWRtaW5AbWFpbC5jb20iLCJ1c2VyVHlwZSI6ImFkbWluIiwiaWF0IjoxNzQ0Mjc4MDY0LCJleHAiOjE3NDQyODE2NjR9.6ZQt66uR5h0ba7Nmd2LmSIPwsDrLFd4yewd5aI0ctAo
+}
+
+body:json {
+  {
+    "name":"test",
+    "email":"test@mail.com",
+    "fleet_director":"testdir",
+    "fleet_dir_email":"testdir@mail.com",
+    "type_of_fleet":"offshore",
+    "no_of_vessels":10
+  }
+}

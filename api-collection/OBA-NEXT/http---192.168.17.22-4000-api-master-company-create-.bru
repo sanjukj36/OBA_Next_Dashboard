@@ -1,0 +1,22 @@
+meta {
+  name: http://192.168.17.22:4000/api/master/company/create/
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://192.168.17.22:4000/api/master/company/create/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbiIsInVzZXJUeXBlIjozLCJpYXQiOjE3NDkxNTMyMzMsImV4cCI6MTc0OTIzOTYzM30.WCoMICi4A4ixUT6Hprl1Ok6Tv_To99RquNMeGPbaJco
+}
+
+body:json {
+  {
+  "email":"bsm@mail.com",
+  "name":"BSM"
+  }
+}

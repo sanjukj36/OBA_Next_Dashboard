@@ -1,0 +1,22 @@
+meta {
+  name: 192.168.18.64:4000/api/master/company/update/
+  type: http
+  seq: 5
+}
+
+put {
+  url: 192.168.18.64:4000/api/master/company/update/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImVtYWlsIjoiYWRtaW5AbWFpbC5jb20iLCJ1c2VyVHlwZSI6ImFkbWluIiwiaWF0IjoxNzQ0MjY0Mzg3LCJleHAiOjE3NDQyNjc5ODd9.nHExRCVT6GPHy3UUpXRWlUuZbU_TSca_wsxS07oOYLk
+}
+
+body:json {
+  {
+  "email":"test@mail.com",
+  "name":"test"
+  }
+}

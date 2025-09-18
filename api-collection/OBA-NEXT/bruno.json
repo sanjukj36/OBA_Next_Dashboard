@@ -1,0 +1,6 @@
+{
+  "version": "1",
+  "name": "OBA-NEXT",
+  "type": "collection",
+  "ignore": ["node_modules", ".git"]
+}

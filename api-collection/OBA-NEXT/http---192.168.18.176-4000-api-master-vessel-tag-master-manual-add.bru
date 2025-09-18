@@ -1,0 +1,27 @@
+meta {
+  name: http://192.168.18.176:4000/api/master/vessel/tag-master/manual-add
+  type: http
+  seq: 40
+}
+
+post {
+  url: http://192.168.18.176:4000/api/master/vessel/tag-master/manual-add
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoidXNlcjEwQG1haWwuY29tIiwidXNlclR5cGUiOjEsImlhdCI6MTc0OTcwNzQxMiwiZXhwIjoxNzQ5NzkzODEyfQ.vIsYYiWKvome_2xGUNHdyc5X8sgWpsvqNVlo7mwOKPk
+}
+
+body:json {
+  {"vesselId":4,"label":"label3","data":
+  [
+  
+    {"unit": "", "maximum": 0, "minimum": 0, "datatype": "bool", "actual_tag": "FDS5_act_kgPm3@AVG", "description": "drgregrtg", "tag_from_vessel": "tag2"},
+  
+     {"unit": "", "maximum": 0, "minimum": 0, "datatype": "bool", "actual_tag": "FDS5_act_kgPm3@AVG", "description": "aaaaaa", "tag_from_vessel": "tag3"}
+  
+  ]
+  }
+}

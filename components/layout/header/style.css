@@ -1,0 +1,25 @@
+.nav-header-bg {
+  --blur-filter: 23.1px;
+  --blur-backdrop: 12.5px;
+  background-image: var(--gradient-navbar-bg);
+  filter: blur(var(--blur-filter));
+}
+
+.nav-list-item > .active {
+  @apply bg-gradient-3 shadow-[0px_4px_8.6px_0px_#00000040] backdrop-blur-[12.5px];
+}
+
+@keyframes underline-in {
+  0% {
+    left: 50%;
+    right: 50%;
+  }
+  100% {
+    left: 0;
+    right: 0;
+  }
+}
+
+.animate-underline-in {
+  animation: underline-in 0.4s ease forwards;
+}

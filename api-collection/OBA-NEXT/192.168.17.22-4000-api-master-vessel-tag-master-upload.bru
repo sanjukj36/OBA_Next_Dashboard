@@ -1,0 +1,20 @@
+meta {
+  name: 192.168.17.22:4000/api/master/vessel/tag-master/upload
+  type: http
+  seq: 32
+}
+
+post {
+  url: 192.168.17.22:4000/api/master/vessel/tag-master/upload
+  body: multipartForm
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSIsInVzZXJUeXBlIjpudWxsLCJpYXQiOjE3NTA2NjE3MjgsImV4cCI6MTc1MzI1MzcyOH0.ysDk0BGZ7F4bVpjbSyUclrRuzWSzh3GU1uRpSxbWhbc
+}
+
+body:multipart-form {
+  vessel_id: 1
+  file: @file()
+}

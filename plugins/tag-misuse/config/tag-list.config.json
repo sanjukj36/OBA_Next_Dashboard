@@ -1,0 +1,22 @@
+{
+  "OVERVIEW": {
+    "importName": "t",
+    "totalTags": 60
+  },
+  "AMS-PMS": {
+    "importName": "p",
+    "totalTags": 57
+  },
+  "AMS-ME": {
+    "importName": "ME",
+    "totalTags": 47
+  },
+  "AMS-DG-GE": {
+    "importName": "GE",
+    "totalTags": 291
+  },
+  "AMS-DG-GENERATORS": {
+    "importName": "l",
+    "totalTags": 33
+  }
+}

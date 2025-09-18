@@ -1,0 +1,22 @@
+{
+  "arrowParens": "avoid",
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "semi": true,
+  "tabWidth": 2,
+  "trailingComma": "none",
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "importOrder": [
+    "<BUILTIN_MODULES>",
+    "^react",
+    "<THIRD_PARTY_MODULES>",
+    "^@[/]",
+    "^[.].*$",
+    "<TYPES>",
+    "^[/].*$",
+    "[.]css$"
+  ]
+}

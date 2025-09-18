@@ -1,0 +1,245 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id            Int            @id @default(autoincrement())
+  name          String         @unique
+  email         String         @unique
+  created_at    DateTime       @default(now())
+  updated_at    DateTime?
+  is_deleted    Boolean        @default(false)
+  fk_created_by Int?
+  user_owner    User?          @relation("CompanyUserOwner", fields: [fk_created_by], references: [id])
+  UserTypePriv  UserTypePriv[]
+  vessel        Vessel[]
+  user          User[]         @relation("CompanyUsers")
+}
+
+model Fleet {
+  id              Int            @id @default(autoincrement())
+  name            String         @unique
+  email           String         @unique
+  created_at      DateTime       @default(now())
+  updated_at      DateTime?
+  is_deleted      Boolean        @default(false)
+  fk_created_by   Int?
+  fleet_dir_email String?
+  fleet_director  String?
+  no_of_vessels   Int?
+  user_owner      User?          @relation("FleetUserOwner", fields: [fk_created_by], references: [id])
+  UserTypePriv    UserTypePriv[]
+  vessel          Vessel[]
+  user            User[]         @relation("FleetUsers")
+}
+
+model Vessel {
+  id                    Int               @id @default(autoincrement())
+  name                  String            @unique
+  vessel_type           String
+  imo                   String
+  hull_no               String
+  created_at            DateTime          @default(now())
+  updated_at            DateTime?
+  is_deleted            Boolean           @default(false)
+  fk_company            Int?
+  fk_fleet              Int?
+  fk_created_by         Int?
+  dg_capacity_indvidual Int[]
+  dg_maker              String
+  dg_model              String
+  email                 String
+  flag                  String
+  geared_or_gearless    Boolean
+  me_maker              String
+  me_model              String
+  no_of_dg              Int?
+  port_of_regd          String
+  power                 Float
+  mcr                   Float
+  year_built            Int
+  vessel_class                 String?
+  FuelMaster            FuelMaster[]
+  Geofence              Geofence[]
+  MLAlarm               MLAlarm[]
+  tagMasters            TagMaster?
+  TagMasterManual       TagMasterManual[]
+  UserTypePriv          UserTypePriv[]
+  company               Company?          @relation(fields: [fk_company], references: [id])
+  user_owner            User?             @relation("VesselUserOwner", fields: [fk_created_by], references: [id])
+  fleet                 Fleet?            @relation(fields: [fk_fleet], references: [id])
+  vesseldata            VesselData[]
+  vesseldatalive        VesselDataLive[]
+  user                  User[]            @relation("VesselUsers")
+}
+
+model User {
+  id                Int           @id @default(autoincrement())
+  userId            String?       @unique
+  uuid              String?       @unique
+  password          String
+  otp               String?
+  otpCreatedAt      String?
+  fpassotp          String?
+  name              String?
+  isActive          Boolean?
+  isLogin           Boolean?
+  isSuperuser       Boolean?
+  email             String        @unique
+  mobile            String?       @unique
+  address           String?
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime?
+  isDeleted         Boolean       @default(false)
+  entity            String?
+  expiry            DateTime?
+  fk_usergroup      Int?
+  fk_company_entity Int[]
+  fk_fleet_entity   Int[]
+  fk_vessel_entity  Int[]
+  userTypeId        Int?
+  profilePicture    String?
+  ownedCompanies    Company[]     @relation("CompanyUserOwner")
+  ownedFleets       Fleet[]       @relation("FleetUserOwner")
+  userType          UserTypePriv? @relation(fields: [userTypeId], references: [id])
+  ownedVessels      Vessel[]      @relation("VesselUserOwner")
+  companies         Company[]     @relation("CompanyUsers")
+  fleets            Fleet[]       @relation("FleetUsers")
+  vessels           Vessel[]      @relation("VesselUsers")
+}
+
+model UserTypePriv {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  pages       String[]
+  isDeleted   Boolean  @default(false)
+  entity_type String
+  fk_company  Int?
+  fk_fleet    Int?
+  fk_vessel   Int?
+  users       User[]
+  company     Company? @relation(fields: [fk_company], references: [id])
+  fleet       Fleet?   @relation(fields: [fk_fleet], references: [id])
+  vessel      Vessel?  @relation(fields: [fk_vessel], references: [id])
+}
+
+model TagMaster {
+  id        Int     @id @default(autoincrement())
+  fk_vessel Int?    @unique
+  tag_data  Json
+  vessel    Vessel? @relation(fields: [fk_vessel], references: [id])
+}
+
+model TagMasterManual {
+  id        Int     @id @default(autoincrement())
+  tag_data  Json
+  fk_vessel Int?
+  label     String?
+  vessel    Vessel? @relation(fields: [fk_vessel], references: [id])
+}
+
+model VesselData {
+  id              Int              @id @default(autoincrement())
+  payload         Json
+  fk_vessel       Int?
+  createdAt       DateTime         @default(now())
+  vesselTime      DateTime?
+  vesselTimeStamp Int?
+  FuelMaster      FuelMaster[]
+  GeofenceAlerts  GeofenceAlerts[]
+  mlAlarms        MLAlarm[]
+  vessel          Vessel?          @relation(fields: [fk_vessel], references: [id])
+
+  @@index([fk_vessel, vesselTime])
+  @@index([vesselTime])
+}
+
+model FuelMaster {
+  id              Int         @id @default(autoincrement())
+  fk_vessel       Int?
+  payload         Json
+  fk_vessel_data  Int?
+  createdAt       DateTime    @default(now())
+  vesselTimeStamp Int?
+  vesselTime      DateTime?
+  predictedValue  Float
+  isAlert         Boolean
+  isAcknowledged  Boolean     @default(false)
+  vesseldata      VesselData? @relation(fields: [fk_vessel_data], references: [id])
+  vessel          Vessel?     @relation(fields: [fk_vessel], references: [id])
+}
+
+model VesselDataLive {
+  id              Int       @id @default(autoincrement())
+  payload         Json
+  fk_vessel       Int?
+  vesselTime      DateTime?
+  vesselTimeStamp Int?
+  createdAt       DateTime  @default(now())
+  vessel          Vessel?   @relation(fields: [fk_vessel], references: [id])
+
+  @@index([fk_vessel, vesselTime])
+  @@index([vesselTime])
+}
+
+model ApiLog {
+  id          Int      @id @default(autoincrement())
+  ipAddress   String
+  userAgent   String
+  endpoint    String
+  method      String
+  queryParams String?
+  payload     String?
+  timestamp   DateTime @default(now())
+  location    String?
+  createdAt   DateTime @default(now())
+}
+
+model MLAlarm {
+  id             Int         @id @default(autoincrement())
+  fk_vessel_data Int?
+  fk_vessel      Int?
+  created_at     DateTime    @default(now())
+  MlResponse     Json
+  isAcknowledged Boolean     @default(false)
+  alarm_name     String
+  suspected_tags Json?
+  vesseldata     VesselData? @relation(fields: [fk_vessel_data], references: [id])
+  vessel         Vessel?     @relation(fields: [fk_vessel], references: [id])
+
+  @@index([alarm_name])
+  @@index([fk_vessel])
+  @@index([fk_vessel_data])
+}
+
+model Geofence {
+  id             Int              @id @default(autoincrement())
+  name           String
+  description    String
+  priority       String
+  alert_send     Boolean?         @default(false)
+  fence_type     String
+  coordsArray    Json
+  fk_vessel      Int?
+  createdAt      DateTime         @default(now())
+  isActive       Boolean          @default(true)
+  vessel         Vessel?          @relation(fields: [fk_vessel], references: [id])
+  GeofenceAlerts GeofenceAlerts[]
+}
+
+model GeofenceAlerts {
+  id             Int         @id @default(autoincrement())
+  fk_geofence    Int?
+  vesselTime     DateTime?
+  coordsArray    Json
+  isAcknowledged Boolean?    @default(false)
+  createdAt      DateTime    @default(now())
+  fk_vessel_data Int?
+  geofence       Geofence?   @relation(fields: [fk_geofence], references: [id])
+  vesseldata     VesselData? @relation(fields: [fk_vessel_data], references: [id])
+}

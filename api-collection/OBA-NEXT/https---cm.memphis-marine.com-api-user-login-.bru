@@ -1,0 +1,22 @@
+meta {
+  name: https://cm.memphis-marine.com/api/user/login/
+  type: http
+  seq: 26
+}
+
+post {
+  url: https://cm.memphis-marine.com/api/user/login/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImVtYWlsIjoiYWRtaW5AbWFpbC5jb20iLCJ1c2VyVHlwZSI6ImFkbWluIiwiaWF0IjoxNzQ0MjgyNDI5LCJleHAiOjE3NDQyODYwMjl9.8fw5VWsjW1vHSXKs1uepeLkVLT57RhdlBNFKoZd0XnQ
+}
+
+body:json {
+  {
+    "email":"admin@mail.com",
+    "password":"memphis@123!"
+  }
+}

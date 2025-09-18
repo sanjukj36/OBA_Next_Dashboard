@@ -1,0 +1,25 @@
+meta {
+  name: http://192.168.17.22:4000/api/user/add/_1
+  type: http
+  seq: 19
+}
+
+post {
+  url: http://192.168.17.22:4000/api/user/add/
+  body: multipartForm
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoidXNlcjEwQG1haWwuY29tIiwidXNlclR5cGUiOjEsImlhdCI6MTc0OTczNzkzMSwiZXhwIjoxNzQ5ODI0MzMxfQ.PkPCZq1vorpvAZO-P-Y8E6br7fz-2g-I52w7_PGY1Tg
+}
+
+body:multipart-form {
+  name: yadhu
+  password: memphis@123!
+  email: yadhu@mail.com
+  user_type_id: 1
+  expiry: 2025-12-31
+  entity: []
+  profilePicture: @file()
+}

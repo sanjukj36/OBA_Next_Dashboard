@@ -1,0 +1,65 @@
+stages:
+  - build
+  - test
+  - deploy
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+before_script:
+  - echo "Installing dependencies..."
+  - echo "NODE:$(node -v)"
+  - echo "NPM:$(npm -v)"
+
+build_job:
+  stage: build
+  script:
+    - npm ci
+    - echo "JWT_SECRET_KEY=$JWT_SECRET_KEY" >> .env.production
+    - echo "DATABASE_URL=$DATABASE_URL" >> .env.production
+    - echo "NEXT_PUBLIC_API=$NEXT_PUBLIC_API" >> .env.production
+    - echo "NEXT_PUBLIC_LEAFLET_ACCESS_TOKEN=$NEXT_PUBLIC_LEAFLET_ACCESS_TOKEN" >> .env.production
+    - npm run build
+  only:
+    - main
+    - staging
+  tags:
+    - gitlab-runner
+
+test_job:
+  stage: test
+  script:
+    - npm test
+  only:
+    - main
+    - staging
+  tags:
+    - gitlab-runner
+
+deploy_job:
+  stage: deploy
+  script:
+    - echo "Deploying to production server..."
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - |
+      ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP << 'EOF'
+        echo "Starting deployment on server..."
+        cd /home/memphis/oba-next-prod2
+        git pull origin main
+        npx prisma migrate dev
+        npm run build
+        pm2 restart 0
+      EOF
+  only:
+    refs:
+      - main
+    variables:
+      - $CI_PIPELINE_SOURCE == "push"
+      - $CI_PIPELINE_SOURCE == "merge_request_event"
+  when: on_success
+  tags:
+    - gitlab-runner

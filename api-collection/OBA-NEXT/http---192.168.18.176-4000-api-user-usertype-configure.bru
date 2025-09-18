@@ -1,0 +1,19 @@
+meta {
+  name: http://192.168.18.176:4000/api/user/usertype/configure
+  type: http
+  seq: 29
+}
+
+post {
+  url: http://192.168.18.176:4000/api/user/usertype/configure
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name":"admin3",
+    "pages":["dashboard", "overview"],
+    "entity_type":"admin"
+  }
+}

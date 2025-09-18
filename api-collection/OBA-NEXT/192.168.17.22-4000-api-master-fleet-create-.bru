@@ -1,0 +1,26 @@
+meta {
+  name: 192.168.17.22:4000/api/master/fleet/create/
+  type: http
+  seq: 8
+}
+
+post {
+  url: 192.168.17.22:4000/api/master/fleet/create/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbiIsInVzZXJUeXBlIjozLCJpYXQiOjE3NDkxNTMyMzMsImV4cCI6MTc0OTIzOTYzM30.WCoMICi4A4ixUT6Hprl1Ok6Tv_To99RquNMeGPbaJco
+}
+
+body:json {
+  {
+    "name":"testfleet",
+    "email":"testfleet@mail.com",
+    "fleet_director":"fleetdir",
+    "fleet_dir_email":"fleetdir@mail.com",
+    "type_of_fleet":"offshore",
+    "no_of_vessels":10
+  }
+}

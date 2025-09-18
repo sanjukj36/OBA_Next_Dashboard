@@ -1,0 +1,36 @@
+meta {
+  name: 192.168.18.64:4000/api/master/vessel/update/
+  type: http
+  seq: 14
+}
+
+put {
+  url: 192.168.18.64:4000/api/master/vessel/update/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImVtYWlsIjoiYWRtaW5AbWFpbC5jb20iLCJ1c2VyVHlwZSI6ImFkbWluIiwiaWF0IjoxNzQ0Mjc4MDY0LCJleHAiOjE3NDQyODE2NjR9.6ZQt66uR5h0ba7Nmd2LmSIPwsDrLFd4yewd5aI0ctAo
+}
+
+body:json {
+  {"name": "test",
+  "imo":"526358",
+  "email":"vessel@mail.com",
+  "vessel_type": "test",
+  "hull_no": "5425",
+  "flag":"SG",
+  "port_of_regd":"SG",
+  "year_built": 2018,
+  "no_of_dg":5,
+  "dg_capacity_indvidual":[1,2,3],
+  "dg_maker":"test",
+  "dg_model":"test",
+  "me_maker":"test2",
+  "me_model":"test3",
+  "power":542,
+  "mcr":54263,
+  "geared_or_gearless":true
+  }
+}

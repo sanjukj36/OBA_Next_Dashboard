@@ -1,0 +1,25 @@
+meta {
+  name: 192.168.18.64:4000/api/user/usertype/droplist
+  type: http
+  seq: 22
+}
+
+get {
+  url: 192.168.18.64:4000/api/user/usertype/droplist
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c2VyQG1haWwuY29tIiwidXNlclR5cGUiOm51bGwsImlhdCI6MTc0NTk5MDE5MywiZXhwIjoxNzQ2MDc2NTkzfQ.aarwdTCKmNv7w9W0j40ojRF0a_xEj_XoQNU7JuV72eI
+}
+
+body:json {
+  {
+    "email":"user6@mail.com",
+    "password":"memphis@123!",
+    "user_type_id":147,
+    "entity":[],
+    "expiry":"10-03-2025"
+  }
+}

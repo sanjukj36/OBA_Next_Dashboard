@@ -1,0 +1,22 @@
+meta {
+  name: 192.168.18.64:4000/api/user/usertype/
+  type: http
+  seq: 28
+}
+
+get {
+  url: 192.168.18.64:4000/api/user/usertype/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoidXNlckBtYWlsLmNvbSIsImlhdCI6MTc0NDM2NDY1MSwiZXhwIjoxNzQ0MzY4MjUxfQ.GaZrpi5yWa6YK9NrtuM5DIsT6jZ4SNo805PS-UojnAE
+}
+
+body:json {
+  {
+    "email":"user@mail.com",
+    "password":"memphis@123!"
+  }
+}

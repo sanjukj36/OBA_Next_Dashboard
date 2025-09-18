@@ -1,0 +1,23 @@
+meta {
+  name: http://192.168.17.22:4000/api/user/usertype/configure
+  type: http
+  seq: 30
+}
+
+post {
+  url: http://192.168.17.22:4000/api/user/usertype/configure
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c2VyQG1haWwuY29tIiwidXNlclR5cGUiOjIsImlhdCI6MTc0NTU3MDU2NCwiZXhwIjoxNzQ1NTcwNTY1fQ.EakAYy0vQL-tsN2XUVdoXWmLvEntf2wsqLFWiz5yfDk
+}
+
+body:json {
+  {
+    "name":"admin2",
+    "pages":["dashboard", "overview"],
+    "entity_type":"admin"
+  }
+}

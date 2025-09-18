@@ -1,0 +1,19 @@
+meta {
+  name: http://192.168.17.22:4000/api/user/add/
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://192.168.17.22:4000/api/user/add/
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+  "email":"user10@mail.com",
+  "password":"memphis2@123!",
+  "usertype":"admin"
+  }
+}
