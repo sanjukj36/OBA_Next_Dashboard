@@ -26,7 +26,7 @@ export default function DashboardLayout({
           bgGradientClassName
         )}
       >
-              <Image
+              {/* <Image
         // src={TimeCardBg}
         // src={GlowBg}
         src={GoldenBg}
@@ -34,7 +34,7 @@ export default function DashboardLayout({
         fill
         className="pointer-events-none absolute inset-0 -z-10 select-none object-cover"
         priority
-      />
+      /> */}
             <div className="absolute inset-0 bg-[linear-gradient(180deg,_#000000_0%,_#050505_100%)] opacity-70 -z-0" />
 
         {/* <Header type="overlay" /> */}
